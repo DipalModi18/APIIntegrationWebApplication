@@ -103,7 +103,7 @@ function call_open_weather_api(country) {
                                 '<div>&nbsp;</div>' +
                                 '<div class="city"><small><small>CITY:</small></small>' + api_response['name']+'</div>' +
                                 '<div class="temp">'+api_response['main']['temp']+ '<small>K</small></div>' +
-                                '<div class="wind"><small><small>WIND:</small></small>' +api_response['wind']['speed']+'km/hr</div>' +
+                                '<div class="wind"><small><small>WIND:</small></small>' +api_response['wind']['speed']+'metres/sec</div>' +
                                 
                                 '<div>&nbsp;</div>' +
                             '</div>' +
