@@ -49,27 +49,27 @@ function call_google_news_api(country) {
         {
             let articles = JSON.parse(req.response)['articles'];
             var container = document.getElementById('news');
-            // let innerHTML = '<div class="w3-col l8 s12">'
-            let innerHTML = "";
+            let innerHTML = '<div class="w3-col l7 s12">'
+            // let innerHTML = "";
             for (let i=0; i<articles.length; i++) {
                 article =articles[i];
                 
-                innerHTML += '<div id=' + i +' class="news_item">' + article["title"] + '</div>';
-                // innerHTML += '<div id="weather"' + i + ' class="w3-card-4 w3-margin w3-white">' 
-                //          '<img src=' + article['urlToImage'] + ' alt="Nature" style="width:100%">' + 
-                //         '<div class="w3-container"> ' +
-                //             '<h3><b>' + article["title"] + '</b></h3>' + 
-                //             '<h5>' + article['description'] + '<span class="w3-opacity">' + article['publishedAt'] + '</span></h5>' + 
-                //         '</div>' + 
-                //         '<div class="w3-container">' + 
-                //         '<p>' + article['content'] + '</p> ' +                         
-                //             '<div class="w3-row"> ' + 
-                //                 '<div class="w3-col m8 s12"> ' +
-                //                     '<p><a href=' + article['url'] + 'class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>' + 
-                //                 '</div>' +
-                //             '</div>' +
-                //         '</div>' + 
-                //     '</div>';
+                // innerHTML += '<p>' + article['title'] + '</p>';
+                innerHTML += '<div class="w3-card-4 w3-margin w3-white">' + 
+                                '<img src=' + article['urlToImage'] + ' alt="Nature" style="width:100%">' + 
+                                '<div class="w3-container"> ' +
+                                    '<h3><b>' + article["title"] + '</b></h3>' +
+                                    '<h5>' + article['description'] + '<span class="w3-opacity">' + article['publishedAt'] + '</span></h5>' +
+                                '</div>' +   
+                                '<div class="w3-container">' +  
+                                    '<p>' + article['content'] + '</p> ' +
+                                    '<div class="w3-row"> ' +
+                                        '<div class="w3-col m8 s12"> ' +
+                                            '<p><a href=' + article['url'] + 'class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>';
                     // Reference: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_blog&stacked=h
                 console.log("Article: " + article['title']);
             }
