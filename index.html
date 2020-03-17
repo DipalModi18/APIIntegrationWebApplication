@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+<body>
+    <script>
+    function generate_dropdown() {
+        let countries = {
+            'us': "USA",
+            'ca': "Canada",
+            'in': "India"
+        }
+        let select = document.getElementById("country_selection");
+        for(var key in countries) {
+            var element = document.createElement("option");
+            element.value = key;
+            element.textContent = countries[key];
+            select.appendChild(element);
+        }
+    }
+    </script>
+
+    <form>
+        Select Country:
+        <select id="country_selection">
+          <script>
+              generate_dropdown();              
+          </script>
+        </select>
+    </form>
+    <button type="button" onclick="myFunction()">Try it</button>
+    
+    <div id="news">
+        
+    </div>
+      
+<script>
+    function myFunction() {
+        document.getElementById('news').innerHTML = "";
+        let country = document.getElementById('country_selection').value;
+        let req = new XMLHttpRequest();
+        req.open("GET", " http://newsapi.org/v2/top-headlines?apiKey=06ef9d950a03436b82d9e7845d250c5c&country="+country);
+        req.send();
+        req.onload = () => {
+            
+            if(req.status === 200)
+            {
+                let articles = JSON.parse(req.response)['articles'];
+                var container = document.getElementById('news');
+                for (let i=0; i<articles.length; i++) {
+                    article =articles[i];
+                    news_item = {
+                        'title': article['title'],
+                        'content': article['content']
+                    }
+                    container.innerHTML += '<div id=' + i +' class="news_item">' + article["title"] + '</div>';
+                    console.log("Article: " + article['title']);
+                }
+            }
+            else
+            {
+                console.log('error ${req.status} ${req.statusText}');
+            }
+        }
+    }
+</script>
+</body>
+</html>
