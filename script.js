@@ -1,15 +1,33 @@
 let countries = {
     'us': {
         'name': 'USA',
-        'capital': ''
+        'capital': 'Washington, D.C.',
+        "lon": -77.036369,
+        "lat": 38.895111
     },
     'ca': {
         'name': 'Canada',
-        'capital': '',
+        'capital': 'Ottawa',
+        "lon": -75.69812,
+        "lat": 45.411171
     },
     'in': {
         'name': 'India',
-        'capital': '',
+        'capital': 'New Delhi',
+        "lon": 77.23114,
+        "lat": 28.61282
+    },
+    'au': {
+        'name': 'Australia',
+        'capital': 'Canberra',
+        "lon": 149.128067,
+        "lat": -35.283459
+    },
+    'ph': {
+        'name': 'Philippines',
+        'capital': 'Manila',
+        "lon": 120.982201,
+        "lat": 14.6042
     }
 }
 
@@ -31,30 +49,32 @@ function call_google_news_api(country) {
         {
             let articles = JSON.parse(req.response)['articles'];
             var container = document.getElementById('news');
-            container.innerHTML = '<div class="w3-col l8 s12">'
+            // let innerHTML = '<div class="w3-col l8 s12">'
+            let innerHTML = "";
             for (let i=0; i<articles.length; i++) {
                 article =articles[i];
                 
-                container.innerHTML += '<div id=' + i +' class="news_item">' + article["title"] + '</div>';
-                // container.innerHTML += '<div id="weather"' + i + ' class="w3-card-4 w3-margin w3-white">' 
-                        //  '<img src=' + article['urlToImage'] + ' alt="Nature" style="width:100%">' + 
-                        // '<div class="w3-container"> ' +
-                        //     '<h3><b>' + article["title"] + '</b></h3>' + 
-                        //     '<h5>' + article['description'] + '<span class="w3-opacity">' + article['publishedAt'] + '</span></h5>' + 
-                        // '</div>' + 
-                        // '<div class="w3-container">' + 
-                        // '<p>' + article['content'] + '</p> ' +                         
-                        //     '<div class="w3-row"> ' + 
-                        //         '<div class="w3-col m8 s12"> ' +
-                        //             '<p><a href=' + article['url'] + 'class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>' + 
-                        //         '</div>' +
-                        //     '</div>' +
-                        // '</div>' + 
-                    // '</div>';
+                innerHTML += '<div id=' + i +' class="news_item">' + article["title"] + '</div>';
+                // innerHTML += '<div id="weather"' + i + ' class="w3-card-4 w3-margin w3-white">' 
+                //          '<img src=' + article['urlToImage'] + ' alt="Nature" style="width:100%">' + 
+                //         '<div class="w3-container"> ' +
+                //             '<h3><b>' + article["title"] + '</b></h3>' + 
+                //             '<h5>' + article['description'] + '<span class="w3-opacity">' + article['publishedAt'] + '</span></h5>' + 
+                //         '</div>' + 
+                //         '<div class="w3-container">' + 
+                //         '<p>' + article['content'] + '</p> ' +                         
+                //             '<div class="w3-row"> ' + 
+                //                 '<div class="w3-col m8 s12"> ' +
+                //                     '<p><a href=' + article['url'] + 'class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>' + 
+                //                 '</div>' +
+                //             '</div>' +
+                //         '</div>' + 
+                //     '</div>';
                     // Reference: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_blog&stacked=h
                 console.log("Article: " + article['title']);
             }
-            container.innerHTML += '</div>';
+            innerHTML += '</div>';
+            container.innerHTML = innerHTML;
         }
         else
         {
@@ -64,8 +84,10 @@ function call_google_news_api(country) {
 }
 
 function call_open_weather_api(country) {
+    console.log("country: " + country['name'])
     let req = new XMLHttpRequest();
-    req.open("GET", " https://samples.openweathermap.org/data/2.5/weather?appid=03993e20a50405fbc75f12d193719f09&q=" + country['capital']);
+    let api = "https://api.openweathermap.org/data/2.5/weather?lat=" + country['lat'] + "&lon=" + country['lon'] + "&appid=03993e20a50405fbc75f12d193719f09";
+    req.open("GET", api);
     req.send();
     req.onload = () => {
         
