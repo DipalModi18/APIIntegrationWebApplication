@@ -32,8 +32,8 @@ let countries = {
 }
 
 function get_api_results() {
-    document.getElementById('news').innerHTML = "";
-    document.getElementById('weather').innerHTML = "";
+    document.getElementById('news_data').innerHTML = "";
+    document.getElementById('weather_data').innerHTML = "";
     let country = document.getElementById('country_selection').value;
     call_google_news_api(country);
     call_open_weather_api(countries[country]);
@@ -48,7 +48,7 @@ function call_google_news_api(country) {
         if(req.status === 200)
         {
             let articles = JSON.parse(req.response)['articles'];
-            var container = document.getElementById('news');
+            var container = document.getElementById('news_data');
             let innerHTML = '<div class="w3-col l7 s12">'
             // let innerHTML = "";
             for (let i=0; i<articles.length; i++) {
@@ -94,14 +94,34 @@ function call_open_weather_api(country) {
         if(req.status === 200)
         {
             let api_response = JSON.parse(req.response);
-            var container = document.getElementById('weather');
-            container.innerHTML = "Weather Report in Capital " + api_response['name'] + ' of Country ' + country['name'] + ' <br />' +  
-                'Overview: ' + api_response['weather'][0]['description'] + ' <br />' +
-                'Temperature: ' + api_response['main']['temp'] + '<br />' + 
-                'Min Temperature: ' + api_response['main']['temp_min'] + '<br />' + 
-                'Max Temperature: ' + api_response['main']['temp_max'] + '<br />' + 
-                'Pressure: ' + api_response['main']['pressure'] + '<br />' +
-                'Humidity: ' + api_response['main']['humidity'] + '<br />';
+            var container = document.getElementById('weather_data');
+            container.innerHTML =
+           
+                    '<div class="weather">' +
+                        '<div class="current">' +
+                            '<div class="info">' +
+                                '<div>&nbsp;</div>' +
+                                '<div class="city"><small><small>CITY:</small></small>' + api_response['name']+'</div>' +
+                                '<div class="temp">'+api_response['main']['temp']+ '<small>K</small></div>' +
+                                '<div class="wind"><small><small>WIND:</small></small>' +api_response['wind']['speed']+'metres/sec</div>' +
+                                
+                                '<div>&nbsp;</div>' +
+                            '</div>' +
+                            '<div class="icon">' +
+                                '<span class="wi-day-sunny"></span>' +
+                            '</div>' +
+                        '</div>' +
+                       
+                    '</div>';
+               
+
+            // container.innerHTML = "Weather Report in Capital " + api_response['name'] + ' of Country ' + country['name'] + ' <br />' +  
+            //     'Overview: ' + api_response['weather'][0]['description'] + ' <br />' +
+            //     'Temperature: ' + api_response['main']['temp'] + '<br />' + 
+            //     'Min Temperature: ' + api_response['main']['temp_min'] + '<br />' + 
+            //     'Max Temperature: ' + api_response['main']['temp_max'] + '<br />' + 
+            //     'Pressure: ' + api_response['main']['pressure'] + '<br />' +
+            //     'Humidity: ' + api_response['main']['humidity'] + '<br />';
         }
         else
         {
