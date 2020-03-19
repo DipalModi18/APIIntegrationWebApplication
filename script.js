@@ -119,4 +119,3 @@ function generate_dropdown() {
         select.appendChild(element);
     }
 }
-
