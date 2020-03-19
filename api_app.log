@@ -1,0 +1,25 @@
+﻿Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : INFO : Fetching API Results...
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : INFO : Fetching News for country: ca
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : INFO : Calling Weather API for lat: 45.411171 & lon: -75.69812
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[0]: Cash is king as emergency stimulus fails to stop market panic - Reuters
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[1]: Ontario's COVID-19 testing backlog doubles and province to buy 300 ventilators to prepare for surge - Toronto Star
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[2]: Wonderchicken' fossil from Belgium reveals dawn of modern birds - The Jakarta Post - Jakarta Post
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[3]: Trump invokes emergency authority, no new cases in Wuhan - CTV News
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[4]: Coronavirus outbreak among homeless would be 'devastating,' experts warn - CTV News
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[5]: Air Canada to suspend most U.S., international flights amid coronavirus pandemic - Global News
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[6]: Coronavirus: Trump puts US on war footing to combat outbreak - BBC News
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[7]: Blood donors needed to prevent regional shortage - WDTNTV
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[8]: Alberta's COVID-19 self-assessment tool accessed more than 1.3M times - CTV News
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[9]: PS5 Vs. Xbox Series X Specs: Comparing The Next-Gen Console Hardware - GameSpot
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[10]: ‘Dear Dr. Bonnie’: Women pen song on B.C.’s top doctor amid coronavirus pandemic - Global News
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[11]: Jimmy Kimmel's Quarantine Minilogue – Staying Normal, Guillermo's Snacks & Trump's “Chinese Virus” - Jimmy Kimmel Live
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[12]: Two new tests for COVID-19 have been approved to speed up results, federal health minister says - National Post
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[13]: NBA players face backlash over quick coronavirus tests as others wait - The Globe and Mail
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[14]: With TB to TB a done deal, other QB questions linger - Toronto Sun
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[15]: Harvey Weinstein Is Now In Maximum-Security Prison - Vulture
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[16]: GamesBeat Decides: PlayStation 5 and Xbox Series X specs spectacular - VentureBeat
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[17]: Apple's new iPad Pro: could it be the computer I've been waiting for? - CNET
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[18]: The Hockey News owner jousts with TSN’s Bob McKenzie over tweet causing ‘mass confusion’ - The Globe and Mail
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : DEBUG : Article[19]: How to apply for EI and COVID-19 emergency benefits - CBC.ca
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : INFO : Received 20 articles
+Thu Mar 19 2020 02:26:28 GMT-0400 (Eastern Daylight Time) : script.js : INFO : Received Weather data: Ottawa Temperature: 273.15

@@ -7,19 +7,21 @@
         <script src="./script.js"></script>
     </head>
 <body>
-    <form>
-        Select Country:
-        <select id="country_selection">
-          <script>
-              generate_dropdown();              
-          </script>
-        </select>
-    </form>
-    <button type="button" onclick="get_api_results()">Get the Latest News and Weather</button>
+        <div class="w3-panel w3-deep-purple w3-center" style="padding: 1em;">
+            Select Country:
+            <div class="w3-dropdown-hover">
+                <select id="country_selection" class="w3-button">
+                    <script>
+                        generate_dropdown();              
+                    </script>
+                </select>
+            </div>
+            <button type="button" class="w3-btn w3-black w3-padding-large w3-hover-blue" onclick="get_api_results()">Get the Latest News and Weather</button>
+        </div>
     
     <div>
         <div id="news_data"></div>
-        <div id="weather_data"></div>
+        <div id="weather_data" style="padding: 1em;"></div>
     </div>
     
 

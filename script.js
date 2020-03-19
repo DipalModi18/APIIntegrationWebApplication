@@ -31,7 +31,10 @@ let countries = {
     }
 }
 
+let module_name = "script.js";
+
 function get_api_results() {
+    console.log(log_message('info', "Fetching API Results..."))
     document.getElementById('news_data').innerHTML = "";
     document.getElementById('weather_data').innerHTML = "";
     let country = document.getElementById('country_selection').value;
@@ -41,6 +44,7 @@ function get_api_results() {
 
 function call_google_news_api(country) {
     let req = new XMLHttpRequest();
+    console.log(log_message('info', "Fetching News for country: " + country));
     req.open("GET", " http://newsapi.org/v2/top-headlines?apiKey=06ef9d950a03436b82d9e7845d250c5c&country=" + country);
     req.send();
     req.onload = () => {
@@ -71,21 +75,22 @@ function call_google_news_api(country) {
                                 '</div>' +
                             '</div>';
                     // Reference: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_blog&stacked=h
-                console.log("Article: " + article['title']);
+                    console.log(log_message('debug', 'Article[' + i + ']: ' + article['title']));
             }
             innerHTML += '</div>';
             container.innerHTML = innerHTML;
+            console.log(log_message('info', 'Received '+ articles.length + ' articles'));
         }
         else
         {
-            console.log('error ${req.status} ${req.statusText}');
+            console.log(log_message('error', 'error ${req.status} ${req.statusText}'));
         }
     }
 }
 
 function call_open_weather_api(country) {
-    console.log("country: " + country['name'])
     let req = new XMLHttpRequest();
+    console.log(log_message('info', 'Calling Weather API for lat: ' + country['lat'] + ' & lon: ' + country['lon']));
     let api = "https://api.openweathermap.org/data/2.5/weather?lat=" + country['lat'] + "&lon=" + country['lon'] + "&appid=03993e20a50405fbc75f12d193719f09";
     req.open("GET", api);
     req.send();
@@ -96,7 +101,6 @@ function call_open_weather_api(country) {
             let api_response = JSON.parse(req.response);
             var container = document.getElementById('weather_data');
             container.innerHTML =
-           
                     '<div class="weather">' +
                         '<div class="current">' +
                             '<div class="info">' +
@@ -113,19 +117,11 @@ function call_open_weather_api(country) {
                         '</div>' +
                        
                     '</div>';
-               
-
-            // container.innerHTML = "Weather Report in Capital " + api_response['name'] + ' of Country ' + country['name'] + ' <br />' +  
-            //     'Overview: ' + api_response['weather'][0]['description'] + ' <br />' +
-            //     'Temperature: ' + api_response['main']['temp'] + '<br />' + 
-            //     'Min Temperature: ' + api_response['main']['temp_min'] + '<br />' + 
-            //     'Max Temperature: ' + api_response['main']['temp_max'] + '<br />' + 
-            //     'Pressure: ' + api_response['main']['pressure'] + '<br />' +
-            //     'Humidity: ' + api_response['main']['humidity'] + '<br />';
+            console.log(log_message('info', 'Received Weather data: ' + api_response['name'] + ' Temperature: ' + api_response['main']['temp']));
         }
         else
         {
-            console.log('error ${req.status} ${req.statusText}');
+            console.log(log_message('error', 'error ${req.status} ${req.statusText}'));
         }
     }
 }
@@ -136,6 +132,11 @@ function generate_dropdown() {
         var element = document.createElement("option");
         element.value = key;
         element.textContent = countries[key]['name'];
+        element.className = "w3-dropdown-content w3-bar-block w3-border";
         select.appendChild(element);
     }
+}
+
+function log_message(log_level, message) {
+    return new Date() + " : " + module_name + " : " + log_level.toUpperCase() + " : " + message;
 }
